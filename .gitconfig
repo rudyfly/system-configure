@@ -12,8 +12,11 @@
 [alias]
 	co = checkout
 	br = branch
-	ci = commit
+	cm = commit
 	st = status
+	df = diff
+	lg = log
+	lo = log --oneline
 	unstage = reset HEAD --
 	last = log -1 HEAD
 	visual = !gitk
