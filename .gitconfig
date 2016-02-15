@@ -3,6 +3,7 @@
 	email = rudyflyzhang@gmail.com
 [core]
 	editor = vim
+	excludesfile = /Users/longyou/.gitignore_global
 [merge]
 	tool = vimdiff
 [diff]
@@ -20,3 +21,19 @@
 	unstage = reset HEAD --
 	last = log -1 HEAD
 	visual = !gitk
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+[mergetool "sourcetree"]
+	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
+[sendemail]
+	smtpserver = smtp.gmail.com
+	smtpuser = rudyflyzhang@gmail.com
+	smtpserverport = 587
+	smtpencryption = tls
+	confirm = auto
+    smtppass = xxxxxx
+#[http]
+#	proxy = socks5://127.0.0.1:1080
+#[https]
+#	proxy = socks5://127.0.0.1:1080
