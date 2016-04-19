@@ -1,4 +1,6 @@
-system-configure
+Linxu System Configure File 
 ================
 
-system configure file
+Install
+	cp * ~
+
