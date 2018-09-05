@@ -1,13 +1,9 @@
 [user]
-	name = Rudy Zhang
-	email = rudyflyzhang@gmail.com
+	name = kuzhi
+	email = kuzhi.zm@alibaba-inc.com
 [core]
 	editor = vim
-	excludesfile = /Users/longyou/.gitignore_global
-[merge]
-	tool = vimdiff
-[diff]
-	tool = vimdiff
+    excludesfile = /Users/zhangmin/.gitignore_global
 [color]
 	ui = true
 [alias]
@@ -18,22 +14,53 @@
 	df = diff
 	lg = log
 	lo = log --oneline
+    cp = cherry-pick
+    rb = rebase
 	unstage = reset HEAD --
 	last = log -1 HEAD
 	visual = !gitk
-[difftool "sourcetree"]
-	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-[mergetool "sourcetree"]
-	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-	trustExitCode = true
 [sendemail]
+    from = Rudy Zhang <rudyflyzhang@gmail.com>
 	smtpserver = smtp.gmail.com
 	smtpuser = rudyflyzhang@gmail.com
 	smtpserverport = 587
 	smtpencryption = tls
 	confirm = auto
-    smtppass = xxxxxx
+    smtppass = xtaytxgt710220
+    chainreplyto = false
+
 #[http]
 #	proxy = socks5://127.0.0.1:1080
 #[https]
 #	proxy = socks5://127.0.0.1:1080
+[gc]
+	autoDetach = false
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+    process = git-lfs filter-process
+    required = true
+[commit]
+    template = /Users/zhangmin/.stCommitMsg
+
+
+[merge]
+	tool = p4mergetool
+[mergetool "p4mergetool"]
+	cmd = /Applications/p4merge.app/Contents/Resources/launchp4merge $PWD/$BASE $PWD/$REMOTE $PWD/$LOCAL $PWD/$MERGED
+	trustExitCode = false
+[mergetool]
+	keepBackup = false
+	prompt = false
+[diff]
+	tool = p4mergetool
+[difftool "p4mergetool"]
+	cmd = /Applications/p4merge.app/Contents/Resources/launchp4merge $LOCAL $REMOTE
+[difftool]
+	prompt = false
+[difftool "sourcetree"]
+	cmd = /Applications/p4merge.app/Contents/MacOS/p4merge \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/p4merge.app/Contents/MacOS/p4merge \"$BASE\" \"$LOCAL\" \"$REMOTE\" \"$MERGED\"
+	trustExitCode = true
